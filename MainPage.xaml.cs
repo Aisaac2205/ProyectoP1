@@ -18,7 +18,7 @@ public partial class MainPage : ContentPage
         InitializeComponent();
     }
    
-    private void OnCounterClicked(object sender, EventArgs e)
+    private void OnSedanCounterClicked(object sender, EventArgs e)
     {
         if (sedanInfoVisible)
         {
@@ -57,7 +57,7 @@ public partial class MainPage : ContentPage
     }
     Sedan sedan;
 
-    private void OnEncenderClicked(object sender, EventArgs e)
+    private void OnSedanEncenderClicked(object sender, EventArgs e)
     {
         if (sedanInfoVisible)
         {
@@ -70,7 +70,7 @@ public partial class MainPage : ContentPage
         }
     }
 
-    private void OnAcelerarClicked(object sender, EventArgs e)
+    private void OnSedanAcelerarClicked(object sender, EventArgs e)
     {
         if (sedanInfoVisible)
         {
@@ -90,7 +90,7 @@ public partial class MainPage : ContentPage
         }
     }
 
-    private void OnBocinaClicked(object sender, EventArgs e)
+    private void OnSedanBocinaClicked(object sender, EventArgs e)
     {
         if (sedanInfoVisible)
         {
@@ -110,7 +110,7 @@ public partial class MainPage : ContentPage
         }
     }
 
-    private void OnFrenarClicked(object sender, EventArgs e)
+    private void OnSedanFrenarClicked(object sender, EventArgs e)
     {
         if (sedanInfoVisible)
         {
@@ -130,7 +130,7 @@ public partial class MainPage : ContentPage
         }
     }
 
-    private void OnApagarClicked(object sender, EventArgs e)
+    private void OnSedanApagarClicked(object sender, EventArgs e)
     {
         if (sedanInfoVisible)
         {
@@ -150,7 +150,7 @@ public partial class MainPage : ContentPage
         }
     }
 
-    private void OnCounterClicked1(object sender, EventArgs e)
+    private void OnPickUpCounterClicked(object sender, EventArgs e)
     {
         if (pickUpInfoVisible)
         {
@@ -162,6 +162,7 @@ public partial class MainPage : ContentPage
             AcelerarBtnPickUp.IsVisible = false;
             BocinaBtnPickUp.IsVisible = false;
             CargarBtnPickUp.IsVisible = false;
+            FrenarBtnPickUp.IsVisible = false;
             ApagarBtnPickUp.IsVisible = false;
         }
         else
@@ -173,28 +174,23 @@ public partial class MainPage : ContentPage
             pickUp.Anio = 2022;
             pickUp.Placa = "P 863JK";
             pickUp.Tipo = "PickUp";
-            //pickUp.Encender();
-            //pickUp.Acelerar(50);
-            //pickUp.Bocina();
-            //pickUp.Cargar();
-            //pickUp.Apagar();
-
+   
             string pickUpInfo = $"Marca: {pickUp.Marca}\nModelo: {pickUp.Modelo}\nColor: {pickUp.Color}\nAño: {pickUp.Anio}\nPlaca: {pickUp.Placa}\nTipo: {pickUp.Tipo}";
-            pickUpLabel.Text = pickUpInfo; // Muestra la información
-            
+            pickUpLabel.Text = pickUpInfo; 
             pickUpInfoVisible = true;
             pickUpImage.IsVisible = true;
 
             EncenderBtnPickUp.IsVisible = true;
             AcelerarBtnPickUp.IsVisible = true;
             BocinaBtnPickUp.IsVisible = true;
+            FrenarBtnPickUp.IsVisible = true;
             CargarBtnPickUp.IsVisible = true;
             ApagarBtnPickUp.IsVisible = true;
         }
   
     }
     PickUp pickUp;
-    private void OnEncenderPickUpClicked(object sender, EventArgs e)
+    private void OnPickUpEncenderClicked(object sender, EventArgs e)
     {
         if (pickUpInfoVisible)
         {
@@ -205,7 +201,7 @@ public partial class MainPage : ContentPage
 
     }
 
-    private void OnAcelerarPickUpClicked(object sender, EventArgs e)
+    private void OnPickUpAcelerarClicked(object sender, EventArgs e)
     {
         if (pickUpInfoVisible)
         {
@@ -225,7 +221,7 @@ public partial class MainPage : ContentPage
         }
     }
 
-    private void OnBocinaPickUpClicked(object sender, EventArgs e)
+    private void OnPickUpBocinaClicked(object sender, EventArgs e)
     {
         if (pickUpInfoVisible)
         {
@@ -244,7 +240,26 @@ public partial class MainPage : ContentPage
             pickUpLabel.Text = "Selecciona el tipo de Auto primero\n";
         }
     }
-    private void OnCargarPickUpClicked(object sender, EventArgs e)
+    private void OnPickUpFrenarClicked(object sender, EventArgs e)
+    {
+        if (pickUpInfoVisible)
+        {
+            if (pickUp.EstadoMotor == EstadoMotor.Encendido)
+            {
+                pickUp.FrenarPickUp(20);
+                pickUpLabel.Text += "FRENANDO EL AUTO HASTA 0 KM\n";
+            }
+            else
+            {
+                pickUpLabel.Text = "Acelera para frenar\n";
+            }
+        }
+        else
+        {
+            pickUpLabel.Text = "Enciende el auto primero\n";
+        }
+    }
+    private void OnPickUpCargarClicked(object sender, EventArgs e)
     {
         if (pickUpInfoVisible)
         {
@@ -255,7 +270,7 @@ public partial class MainPage : ContentPage
             }
         }
     }
-    private void OnApagarPickUpClicked(object sender, EventArgs e)
+    private void OnPickUpApagarClicked(object sender, EventArgs e)
     {
         if (pickUpInfoVisible)
         {
@@ -282,27 +297,150 @@ public partial class MainPage : ContentPage
             suvInfoVisible = false;
             suvLabel.Text = string.Empty;
             suvImage.IsVisible = false;
+
+            EncenderSUVBtn.IsVisible = false;
+            AcelerarSUVBtn.IsVisible = false;
+            BocinaSUVBtn.IsVisible = false;
+            FrenarSUVBtn.IsVisible = false;
+            Traccion4x4Btn.IsVisible = false;
+            ApagarSUVBtn.IsVisible = false;
         }
         else
         {
-            SUV suv = new SUV();
+            suv = new SUV();
             suv.Marca = "Jeep";
             suv.Modelo = "Wrangler";
             suv.Color = "Negro";
             suv.Anio = 2023;
             suv.Placa = "GHI789";
             suv.Tipo = "SUV";
-            suv.Encender();
-            suv.Acelerar(60);
-            suv.Bocina();
-            suv.ActivarTraccion4x4();
-            suv.Apagar();
 
             string suvInfo = $"Marca: {suv.Marca}\nModelo: {suv.Modelo}\nColor: {suv.Color}\nAño: {suv.Anio}\nPlaca: {suv.Placa}\nTipo: {suv.Tipo}";
-            suvLabel.Text = suvInfo; // Muestra la información
+            suvLabel.Text = suvInfo;
 
             suvInfoVisible = true;
-            suvImage.IsVisible = true;  
+            suvImage.IsVisible = true;
+
+            EncenderSUVBtn.IsVisible = true;
+            AcelerarSUVBtn.IsVisible = true;
+            BocinaSUVBtn.IsVisible = true;
+            FrenarSUVBtn.IsVisible = true;
+            Traccion4x4Btn.IsVisible = true;
+            ApagarSUVBtn.IsVisible = true;
+        }
+    }
+
+    SUV suv;
+
+    private void OnSUVEncenderClicked(object sender, EventArgs e)
+    {
+        if (suvInfoVisible)
+        {
+            suv.Encender();
+            suvLabel.Text += "\n\nTSTSTSTS RUUUUUUN\n";
+        }
+        else
+        {
+            suvLabel.Text = "Ingrese la llave correctamente\n";
+        }
+    }
+
+    private void OnSUVAcelerarClicked(object sender, EventArgs e)
+    {
+        if (suvInfoVisible)
+        {
+            if (suv.EstadoMotor == EstadoMotor.Encendido)
+            {
+                suv.Acelerar(40);
+                suvLabel.Text += "Acelerando a 40 km/h\n";
+            }
+            else
+            {
+                suvLabel.Text = "Enciende el carro para acelerar\n";
+            }
+        }
+        else
+        {
+            suvLabel.Text = "Enciende el auto primero\n";
+        }
+    }
+
+    private void OnSUVBocinaClicked(object sender, EventArgs e)
+    {
+        if (suvInfoVisible)
+        {
+            if (suv.EstadoMotor == EstadoMotor.Encendido)
+            {
+                suv.Bocina();
+                suvLabel.Text += "PEEP PEEP\n";
+            }
+            else
+            {
+                suvLabel.Text = "Enciende el carro para bocinar\n";
+            }
+        }
+        else
+        {
+            suvLabel.Text = "Selecciona el tipo de Auto primero\n";
+        }
+    }
+
+    private void OnSUVFrenarClicked(object sender, EventArgs e)
+    {
+        if (suvInfoVisible)
+        {
+            if (suv.EstadoMotor == EstadoMotor.Encendido)
+            {
+                suv.Frenar(20);
+                suvLabel.Text += "Frenando\n";
+            }
+            else
+            {
+                suvLabel.Text = "Enciende el carro para frenar\n";
+            }
+        }
+        else
+        {
+            suvLabel.Text = "Enciende el Auto correctamente\n";
+        }
+    }
+    private void OnSUVTraccion4x4Clicked(object sender, EventArgs e)
+    {
+        if (suvInfoVisible)
+        {
+            if (suv.EstadoMotor == EstadoMotor.Encendido)
+            {
+                suv.ActivarTraccion4x4();
+                suvLabel.Text += "\nTracción 4x4 activada\n";
+            }
+            else
+            {
+                suvLabel.Text = "Enciende el carro para activar la tracción 4x4\n";
+            }
+        }
+        else
+        {
+            suvLabel.Text = "Selecciona el tipo de Auto primero\n";
+        }
+    }
+
+    private void OnSUVApagarClicked(object sender, EventArgs e)
+    {
+        if (suvInfoVisible)
+        {
+            if (suv.EstadoMotor == EstadoMotor.Encendido)
+            {
+                suv.Apagar();
+                suvLabel.Text += "Apagando el carro\n SSSSSSSSSSSS\nAuto Apagado";
+            }
+            else
+            {
+                suvLabel.Text = "Enciende el carro para apagarlo\n";
+            }
+        }
+        else
+        {
+            suvLabel.Text = "Selecciona el tipo de Auto primero\n";
         }
     }
     private void OnCounterClicked3(object sender, EventArgs e)
@@ -310,31 +448,151 @@ public partial class MainPage : ContentPage
         if (cuatroPorCuatroInfoVisible)
         {
             cuatroPorCuatroInfoVisible = false;
-            cuatroPorCuatroLabel.Text = string.Empty;
+            cuatroPorcuatroLabel.Text = string.Empty;
             cuatroImage.IsVisible = false;
+
+            Encender4x4Btn.IsVisible = false;
+            Acelerar4x4Btn.IsVisible = false;
+            Bocina4x4Btn.IsVisible = false;
+            Frenar4x4Btn.IsVisible = false;
+            MarchaTerrenosDificilesBtn.IsVisible = false;
+            Apagar4x4Btn.IsVisible = false;
         }
         else
         {
-            CuatroPorCuatro cuatroPorCuatro = new CuatroPorCuatro();
+            cuatroPorCuatro = new CuatroPorCuatro();
             cuatroPorCuatro.Marca = "Mazda";
             cuatroPorCuatro.Modelo = "CX5";
             cuatroPorCuatro.Color = "Gris";
             cuatroPorCuatro.Anio = 2023;
             cuatroPorCuatro.Placa = "JKL012";
             cuatroPorCuatro.Tipo = "4x4";
-            cuatroPorCuatro.Encender();
-            cuatroPorCuatro.Acelerar(70);
-            cuatroPorCuatro.Bocina();
-            cuatroPorCuatro.ConducirTerrenosDificiles();
-            cuatroPorCuatro.Apagar();
+    
 
             string cuatroPorCuatroInfo = $"Marca: {cuatroPorCuatro.Marca}\nModelo: {cuatroPorCuatro.Modelo}\nColor: {cuatroPorCuatro.Color}\nAño: {cuatroPorCuatro.Anio}\nPlaca: {cuatroPorCuatro.Placa}\nTipo: {cuatroPorCuatro.Tipo}";
-            cuatroPorCuatroLabel.Text = cuatroPorCuatroInfo; // Muestra la información
-
+            cuatroPorcuatroLabel.Text = cuatroPorCuatroInfo; 
             cuatroPorCuatroInfoVisible = true;
             cuatroImage.IsVisible = true;
+
+            Encender4x4Btn.IsVisible = true;
+            Acelerar4x4Btn.IsVisible = true;
+            Bocina4x4Btn.IsVisible = true;
+            Frenar4x4Btn.IsVisible = true;
+            MarchaTerrenosDificilesBtn.IsVisible = true;
+            Apagar4x4Btn.IsVisible = true;
+        }
+    }
+    CuatroPorCuatro cuatroPorCuatro;
+
+    private void On4x4EncenderClicked(object sender, EventArgs e)
+    {
+        if (cuatroPorCuatroInfoVisible)
+        {
+            cuatroPorCuatro.Encender();
+            cuatroPorcuatroLabel.Text += "\n\nTSTSTSTS RUUUUUUN\n";
+        }
+        else
+        {
+            cuatroPorcuatroLabel.Text = "Ingrese la llave correctamente\n";
         }
     }
 
+    private void On4x4AcelerarClicked(object sender, EventArgs e)
+    {
+        if (cuatroPorCuatroInfoVisible)
+        {
+            if (cuatroPorCuatro.EstadoMotor == EstadoMotor.Encendido)
+            {
+                cuatroPorCuatro.Acelerar(40);
+                cuatroPorcuatroLabel.Text += "Acelerando a 40 km/h\n";
+            }
+            else
+            {
+                cuatroPorcuatroLabel.Text = "Enciende el carro para acelerar\n";
+            }
+        }
+        else
+        {
+            cuatroPorcuatroLabel.Text = "Enciende el auto primero\n";
+        }
+    }
+
+    private void On4x4BocinaClicked(object sender, EventArgs e)
+    {
+        if (cuatroPorCuatroInfoVisible)
+        {
+            if (cuatroPorCuatro.EstadoMotor == EstadoMotor.Encendido)
+            {
+                cuatroPorCuatro.Bocina();
+                cuatroPorcuatroLabel.Text += "PEEP PEEP\n";
+            }
+            else
+            {
+                cuatroPorcuatroLabel.Text = "Enciende el carro para bocinar\n";
+            }
+        }
+        else
+        {
+            cuatroPorcuatroLabel.Text = "Selecciona el tipo de Auto primero\n";
+        }
+    }
+
+    private void On4x4FrenarClicked(object sender, EventArgs e)
+    {
+        if (cuatroPorCuatroInfoVisible)
+        {
+            if (cuatroPorCuatro.EstadoMotor == EstadoMotor.Encendido)
+            {
+                cuatroPorCuatro.Frenar(20);
+                cuatroPorcuatroLabel.Text += "Frenando\n";
+            }
+            else
+            {
+                cuatroPorcuatroLabel.Text = "Enciende el carro para frenar\n";
+            }
+        }
+        else
+        {
+            cuatroPorcuatroLabel.Text = "Enciende el Auto correctamente\n";
+        }
+    }
+    private void On4x4MarchaTerrenosDificilesClicked(object sender, EventArgs e)
+    {
+        if (cuatroPorCuatroInfoVisible)
+        {
+            if (cuatroPorCuatro.EstadoMotor == EstadoMotor.Encendido)
+            {
+                cuatroPorCuatro.ActivarTraccion4x4();
+                cuatroPorcuatroLabel.Text += "Marcha de terrenos difíciles activada\n";
+            }
+            else
+            {
+                cuatroPorcuatroLabel.Text = "Enciende el carro para activar la marcha de terrenos difíciles\n";
+            }
+        }
+        else
+        {
+            cuatroPorcuatroLabel.Text = "Selecciona el tipo de Auto primero\n";
+        }
+    }
+    private void On4x4ApagarClicked(object sender, EventArgs e)
+    {
+        if (cuatroPorCuatroInfoVisible)
+        {
+            if (cuatroPorCuatro.EstadoMotor == EstadoMotor.Encendido)
+            {
+                cuatroPorCuatro.Apagar();
+                cuatroPorcuatroLabel.Text += "Apagando el carro\n SSSSSSSSSSSS\nAuto Apagado";
+            }
+            else
+            {
+                cuatroPorcuatroLabel.Text = "Enciende el carro para apagarlo\n";
+            }
+        }
+        else
+        {
+            cuatroPorcuatroLabel.Text = "Selecciona el tipo de Auto primero\n";
+        }
+    }
 }
 
