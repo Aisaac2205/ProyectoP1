@@ -28,7 +28,7 @@
     x:Name="CounterBtn"
     Text="Auto Sedan"
     SemanticProperties.Hint="Counts the number of times you click"
-    Clicked="OnCounterClicked"
+    Clicked="OnSedanCounterClicked"
     HorizontalOptions="Center" />
 
             <Label x:Name="sedanLabel" Text="" HorizontalTextAlignment="Center" />
@@ -46,130 +46,257 @@
         x:Name="EncenderBtn"
         Grid.Row="0"
         Text="Encender"
-        Clicked="OnEncenderClicked"
+        Clicked="OnSedanEncenderClicked"
         IsVisible="False" />
 
                 <Button
         x:Name="AcelerarBtn"
         Grid.Row="1"
         Text="Acelerar"
-        Clicked="OnAcelerarClicked"
+        Clicked="OnSedanAcelerarClicked"
         IsVisible="False" />
 
                 <Button
         x:Name="BocinaBtn"
         Grid.Row="2"
         Text="Bocina"
-        Clicked="OnBocinaClicked"
+        Clicked="OnSedanBocinaClicked"
         IsVisible="False" />
 
                 <Button
         x:Name="FrenarBtn"
         Grid.Row="3"
         Text="Frenar"
-        Clicked="OnFrenarClicked"
+        Clicked="OnSedanFrenarClicked"
         IsVisible="False" />
 
                 <Button
         x:Name="ApagarBtn"
         Grid.Row="4"
         Text="Apagar"
-        Clicked="OnApagarClicked"
+        Clicked="OnSedanApagarClicked"
         IsVisible="False" />
             </Grid>
 
             <Image
-            x:Name="sedanImage"
-            Source="toyota.jpg"
-            SemanticProperties.Description="Cute dot net bot waving hi to you!"
-            HeightRequest="200"
-            HorizontalOptions="Center"
-            IsVisible="False" />
+    x:Name="sedanImage"
+    Source="toyota.jpg"
+    SemanticProperties.Description="Cute dot net bot waving hi to you!"
+    HeightRequest="200"
+    HorizontalOptions="Center"
+    IsVisible="False" />
 
 
             <Button
     x:Name="CounterBtn1"
     Text="Auto PickUp"
     SemanticProperties.Hint="Counts the number of times you click"
-    Clicked="OnCounterClicked1"
+    Clicked="OnPickUpCounterClicked"
     HorizontalOptions="Center" />
 
             <Label x:Name="pickUpLabel" Text="" HorizontalTextAlignment="Center" />
 
-            <Button
-    x:Name="EncenderBtnPickUp"
-    Text="Encender"
-    Clicked="OnEncenderPickUpClicked"
-    IsVisible="False"
-    HorizontalOptions="Center" />
+            <Grid HorizontalOptions="Center">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
 
-            <Button
-    x:Name="AcelerarBtnPickUp"
-    Text="Acelerar"
-    Clicked="OnAcelerarPickUpClicked"
-    IsVisible="False"
-    HorizontalOptions="Center" />
-            
-            <Button
-    x:Name="BocinaBtnPickUp"
-    Text="Bocina"
-    Clicked="OnBocinaPickUpClicked"
-    IsVisible="False"
-    HorizontalOptions="Center" />
+                <Button
+        x:Name="EncenderBtnPickUp"
+        Grid.Row="0"
+        Text="Encender"
+        Clicked="OnPickUpEncenderClicked"
+        IsVisible="False" />
 
-            <Button
-    x:Name="CargarBtnPickUp"
-    Text="Cargar"
-    Clicked="OnCargarPickUpClicked"
-    IsVisible="False"
-    HorizontalOptions="Center" />
+                <Button
+        x:Name="AcelerarBtnPickUp"
+        Grid.Row="1"
+        Text="Acelerar"
+        Clicked="OnPickUpAcelerarClicked"
+        IsVisible="False" />
 
-            <Button
-    x:Name="ApagarBtnPickUp"
-    Text="Apagar"
-    Clicked="OnApagarPickUpClicked"
-    IsVisible="False"
-    HorizontalOptions="Center" />
+                <Button
+        x:Name="BocinaBtnPickUp"
+        Grid.Row="2"
+        Text="Bocina"
+        Clicked="OnPickUpBocinaClicked"
+        IsVisible="False" />
+
+                <Button
+        x:Name="FrenarBtnPickUp"
+        Grid.Row="3"
+        Text="Frenar"
+        Clicked="OnPickUpFrenarClicked"
+        IsVisible="False" />
+
+                <Button
+        x:Name="CargarBtnPickUp"
+        Grid.Row="4"
+        Text="Cargar"
+        Clicked="OnPickUpCargarClicked"
+        IsVisible="False" />
+
+                <Button
+        x:Name="ApagarBtnPickUp"
+        Grid.Row="5"
+        Text="Apagar"
+        Clicked="OnPickUpApagarClicked"
+        IsVisible="False" />
+            </Grid>
 
             <Image
-               x:Name="pickUpImage"
-                Source="ford.jpg"
-                SemanticProperties.Description="Cute dot net bot waving hi to you!"
-                HeightRequest="200"
-                HorizontalOptions="Center"
-                IsVisible="False" />
+        x:Name="pickUpImage"
+        Source="ford.jpg"
+        SemanticProperties.Description="Cute dot net bot waving hi to you!"
+        HeightRequest="200"
+        HorizontalOptions="Center"
+        IsVisible="False" />
 
 
             <Button
-                x:Name="CounterBtn2"
-                Text="Auto SUV"
-                SemanticProperties.Hint="Counts the number of times you click"
-                Clicked="OnCounterClicked2"
-                HorizontalOptions="Center" />
+        x:Name="CounterBtn2"
+        Text="Auto SUV"
+        SemanticProperties.Hint="Counts the number of times you click"
+        Clicked="OnCounterClicked2"
+        HorizontalOptions="Center" />
             <Label x:Name="suvLabel" Text="" HorizontalTextAlignment="Center" />
-            <Image
-               x:Name="suvImage"
-                Source="jeep.jpg"
-                SemanticProperties.Description="Cute dot net bot waving hi to you!"
-                HeightRequest="200"
-                HorizontalOptions="Center"
-                IsVisible="False" />
 
+            <Grid HorizontalOptions="Center">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <Button
+        x:Name="EncenderSUVBtn"
+        Grid.Row="0"
+        Text="Encender"
+        Clicked="OnSUVEncenderClicked"
+        IsVisible="False" />
+
+                <Button
+        x:Name="AcelerarSUVBtn"
+        Grid.Row="1"
+        Text="Acelerar"
+        Clicked="OnSUVAcelerarClicked"
+        IsVisible="False" />
+
+                <Button
+        x:Name="BocinaSUVBtn"
+        Grid.Row="2"
+        Text="Bocina"
+        Clicked="OnSUVBocinaClicked"
+        IsVisible="False" />
+
+                <Button
+        x:Name="FrenarSUVBtn"
+        Grid.Row="3"
+        Text="Frenar"
+        Clicked="OnSUVFrenarClicked"
+        IsVisible="False" />
+
+                <Button
+    x:Name="Traccion4x4Btn"
+    Grid.Row="4"
+    Text="Tracción 4x4"
+    Clicked="OnSUVTraccion4x4Clicked"
+    IsVisible="False" />
+
+                <Button
+        x:Name="ApagarSUVBtn"
+        Grid.Row="5"
+        Text="Apagar"
+        Clicked="OnSUVApagarClicked"
+        IsVisible="False" />
+            </Grid>
+
+            <Image
+        x:Name="suvImage"
+        Source="jeep.jpg"
+        SemanticProperties.Description="Cute dot net bot waving hi to you!"
+        HeightRequest="200"
+        HorizontalOptions="Center"
+        IsVisible="False" />
 
             <Button
-                x:Name="CounterBtn3"
-                Text="Auto 4x4"
-                SemanticProperties.Hint="Counts the number of times you click"
-                Clicked="OnCounterClicked3"
-                HorizontalOptions="Center" />
-            <Label x:Name="cuatroPorCuatroLabel" Text="" HorizontalTextAlignment="Center" />
+        x:Name="CounterBtn3"
+        Text="Auto 4x4"
+        SemanticProperties.Hint="Counts the number of times you click"
+        Clicked="OnCounterClicked3"
+        HorizontalOptions="Center" />
+            <Label x:Name="cuatroPorcuatroLabel" Text="" HorizontalTextAlignment="Center" />
+
+            <Grid HorizontalOptions="Center">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+
+                <Button
+        x:Name="Encender4x4Btn"
+        Grid.Row="0"
+        Text="Encender"
+        Clicked="On4x4EncenderClicked"
+        IsVisible="False" />
+
+                <Button
+        x:Name="Acelerar4x4Btn"
+        Grid.Row="1"
+        Text="Acelerar"
+        Clicked="On4x4AcelerarClicked"
+        IsVisible="False" />
+
+                <Button
+        x:Name="Bocina4x4Btn"
+        Grid.Row="2"
+        Text="Bocina"
+        Clicked="On4x4BocinaClicked"
+        IsVisible="False" />
+
+                <Button
+        x:Name="Frenar4x4Btn"
+        Grid.Row="3"
+        Text="Frenar"
+        Clicked="On4x4FrenarClicked"
+        IsVisible="False" />
+
+                <Button
+        x:Name="MarchaTerrenosDificilesBtn"
+        Grid.Row="4"
+        Text="Marcha de terrenos difíciles activada"
+        Clicked="On4x4MarchaTerrenosDificilesClicked"
+        IsVisible="False" />
+
+
+                <Button
+        x:Name="Apagar4x4Btn"
+        Grid.Row="5"
+        Text="Apagar"
+        Clicked="On4x4ApagarClicked"
+        IsVisible="False" />
+            </Grid>
             <Image
-               x:Name="cuatroImage"
-                Source="mazda.jpg"
-                SemanticProperties.Description="Cute dot net bot waving hi to you!"
-                HeightRequest="200"
-                HorizontalOptions="Center"
-                IsVisible="False" />
+    x:Name="cuatroImage"
+    Source="mazda.jpg"
+    SemanticProperties.Description="Cute dot net bot waving hi to you!"
+    HeightRequest="200"
+    HorizontalOptions="Center"
+    IsVisible="False" />
+
 
 
 

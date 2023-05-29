@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MauiApp1
 {
-    public class PickUp : IVehiculo
+    public class SUV : IVehiculo
     {
         public string Marca { get; set; }
         public string Modelo { get; set; }
@@ -19,9 +19,35 @@ namespace MauiApp1
         public EstadoMotor EstadoMotor { get; private set; }
         public Estado Estado { get; private set; }
 
+        public void Bocina()
+        {
+           
+        }
+
         public void Acelerar(int cuanto)
         {
-          
+            if (EstadoMotor == EstadoMotor.Encendido)
+            {
+                VelocidadActual += cuanto;
+               
+            }
+            else
+            {
+                
+            }
+        }
+
+        public void Encender()
+        {
+            if (EstadoMotor == EstadoMotor.Apagado)
+            {
+                EstadoMotor = EstadoMotor.Encendido;
+                
+            }
+            else
+            {
+                
+            }
         }
 
         public void Apagar()
@@ -38,33 +64,14 @@ namespace MauiApp1
             }
         }
 
-        public void Bocina()
-        {
-            
-        }
-
-        public void Encender()
-        {
-            if (EstadoMotor == EstadoMotor.Apagado)
-            {
-                EstadoMotor = EstadoMotor.Encendido;
-               
-            }
-            else
-            {
-               
-            }
-        }
-
-
-        public void FrenarPickUp(int cuanto)
+        public void Frenar(int cuanto)
         {
             if (EstadoMotor == EstadoMotor.Encendido && VelocidadActual > 0)
             {
                 VelocidadActual -= cuanto;
                 if (VelocidadActual < 0)
                     VelocidadActual = 0;
-                
+              
             }
             else
             {
@@ -72,25 +79,16 @@ namespace MauiApp1
             }
         }
 
-            public void Cargar()
-            {
-                if (EstadoMotor == EstadoMotor.Encendido && VelocidadActual > 0)
-                {
-                    if (VelocidadActual < 0)
-                        VelocidadActual = 0;
-                    
-                }
-                else
-                {
-                    
-                }
-            }
-
-        public void Frenar(int cuanto)
+        public void ActivarTraccion4x4()
         {
-            throw new NotImplementedException();
+            if (EstadoMotor == EstadoMotor.Encendido && VelocidadActual > 0)
+            {
+                
+            }
+            else
+            {
+                
+            }
         }
     }
 }
-
-
